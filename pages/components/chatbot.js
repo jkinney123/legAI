@@ -13,11 +13,11 @@ function ChatBox() {
 
         if (!chatStarted) {
             setHistoricalFigure(newMessage);
-            setMessages([...messages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai' }]);
+            setMessages(prevMessages => [...prevMessages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai' }]);
             setChatStarted(true);
         } else {
             // Add user's message to chat
-            setMessages([...messages, { text: newMessage, sender: 'user' }]);
+            setMessages(prevMessages => [...prevMessages, { text: newMessage, sender: 'user' }]);
             setIsTyping(true); // Set isTyping to true right before making the request
             // Send the user's message to the GPT-4 API
             const res = await fetch('/api', {
@@ -30,7 +30,7 @@ function ChatBox() {
             const data = await res.json();
             setIsTyping(false); // Set isTyping to false after receiving the response
             // Add AI's response to chat
-            setMessages([...messages, { text: data.response, sender: 'ai' }]);
+            setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'ai' }]);
         }
 
         // Clear the input field
