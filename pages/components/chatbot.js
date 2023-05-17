@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Message from './Message';
 
+
 function ChatBox() {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
@@ -38,7 +39,7 @@ function ChatBox() {
     };
 
     return (
-        <div>
+        <div className="chat-box">
             <div>
                 {!chatStarted ? (
                     <p>Please enter the name of the historical figure you want to chat with:</p>
@@ -50,11 +51,13 @@ function ChatBox() {
                 {isTyping ? <Message key="typing" message={`${historicalFigure} is typing...`} sender='ai' /> : null}
             </div>
             <form onSubmit={handleSend}>
-                <input
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                />
+                <div className="textarea-container">
+                    <textarea
+                        className="textarea-style"
+                        value={newMessage}
+                        onChange={(e) => setNewMessage(e.target.value)}
+                    />
+                </div>
                 <button type="submit">Send</button>
             </form>
         </div>

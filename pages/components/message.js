@@ -2,10 +2,11 @@ import React from 'react';
 
 function Message({ message, sender }) {
     return (
-        <div style={{ textAlign: sender === 'user' ? 'right' : 'left' }}>
+        <div className={`message ${sender}`}>
             <p>{message}</p>
         </div>
     );
 }
+
 
 export default Message;
