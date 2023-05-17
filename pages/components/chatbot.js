@@ -31,7 +31,7 @@ function ChatBox() {
             const data = await res.json();
             setIsTyping(false); // Set isTyping to false after receiving the response
             // Add AI's response to chat
-            setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'ai' }]);
+            setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'ai', image: data.image }]);
         }
 
         // Clear the input field
@@ -51,13 +51,22 @@ function ChatBox() {
                 {isTyping ? <Message key="typing" message={`${historicalFigure} is typing...`} sender='ai' /> : null}
             </div>
             <form onSubmit={handleSend}>
-                <div className="textarea-container">
-                    <textarea
-                        className="textarea-style"
+                {!chatStarted ? (
+                    <input
+                        type="text"
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
+                        placeholder="Enter historical figure name"
                     />
-                </div>
+                ) : (
+                    <div className="textarea-container">
+                        <textarea
+                            className="textarea-style"
+                            value={newMessage}
+                            onChange={(e) => setNewMessage(e.target.value)}
+                        />
+                    </div>
+                )}
                 <button type="submit">Send</button>
             </form>
         </div>
