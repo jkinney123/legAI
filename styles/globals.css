@@ -4,6 +4,11 @@ body {
     background-color: #9fbbccd4;
 }
 
+p {
+    margin: 10px;
+    padding: 5px 5px;
+}
+
 .chat-box {
     display: flex;
     flex-direction: column;
@@ -26,13 +31,13 @@ body {
     border-radius: 5px;
 }
 
-.message.user {
+.user {
     align-self: flex-end;
     background-color: #366496;
     color: #fff;
 }
 
-.message.ai {
+.ai {
     align-self: flex-start;
     background-color: #e2e2e2;
 }
@@ -56,8 +61,8 @@ body {
 }
 
 img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
     width: auto;
     height: auto;
 }
