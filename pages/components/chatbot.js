@@ -1,26 +1,35 @@
 import React, { useState } from 'react';
-import Message from './Message';
-
+import Message from './message';
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
     const [historicalFigure, setHistoricalFigure] = useState('');
     const [chatStarted, setChatStarted] = useState(false);
-    const [isTyping, setIsTyping] = useState(false); // Add this line
+    const [isTyping, setIsTyping] = useState(false);
 
     const handleSend = async (event) => {
         event.preventDefault();
 
         if (!chatStarted) {
             setHistoricalFigure(newMessage);
-            setMessages(prevMessages => [...prevMessages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai' }]);
+            setIsTyping(true);
+            const res = await fetch('/api/image', { // changed to POST request
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ figureName: newMessage }) // sending the figure name in the body of the request
+            });
+            const data = await res.json();
+            const image = data.imageUrl;
+            console.log(image);
+            setIsTyping(false);
+            setMessages(prevMessages => [...prevMessages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai', image }]);
             setChatStarted(true);
         } else {
-            // Add user's message to chat
             setMessages(prevMessages => [...prevMessages, { text: newMessage, sender: 'user' }]);
-            setIsTyping(true); // Set isTyping to true right before making the request
-            // Send the user's message to the GPT-4 API
+            setIsTyping(true);
             const res = await fetch('/api', {
                 method: 'POST',
                 headers: {
@@ -29,14 +38,14 @@ function ChatBox() {
                 body: JSON.stringify({ historicalFigure: historicalFigure, message: newMessage }),
             });
             const data = await res.json();
-            setIsTyping(false); // Set isTyping to false after receiving the response
-            // Add AI's response to chat
-            setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'ai', image: data.image }]);
+            console.log(data);
+            setIsTyping(false);
+            setMessages(prevMessages => [...prevMessages, { text: data.response, sender: 'ai', image: data.imageUrl }]);
         }
 
-        // Clear the input field
         setNewMessage('');
     };
+
 
     return (
         <div className="chat-box">
@@ -44,9 +53,17 @@ function ChatBox() {
                 {!chatStarted ? (
                     <p>Please enter the name of the historical figure you want to chat with:</p>
                 ) : null}
-                {messages.map((message, index) => (
-                    <Message key={index} message={message.text} sender={message.sender} />
-                ))}
+                {messages.map((message, index) => {
+                    console.log('Rendering message:', message); // Log each message
+                    return (
+                        <Message
+                            key={index}
+                            message={message.text}
+                            sender={message.sender}
+                            image={message.image}
+                        />
+                    )
+                })}
                 {/* Add a "typing" message */}
                 {isTyping ? <Message key="typing" message={`${historicalFigure} is typing...`} sender='ai' /> : null}
             </div>

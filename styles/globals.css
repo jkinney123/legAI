@@ -20,7 +20,7 @@ body {
 }
 
 .message {
-    max-width: 100%;
+    max-width: 90%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -37,6 +37,13 @@ body {
     background-color: #e2e2e2;
 }
 
+.message.ai img {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+}
+
 .textarea-container {
     display: flex;
     justify-content: center;
@@ -46,4 +53,11 @@ body {
 .textarea-style {
     width: 400px;
     height: 90px;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
 }

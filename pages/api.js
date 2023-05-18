@@ -1,26 +1,13 @@
 import axios from 'axios';
 
-async function getImage(historicalFigureName, accessToken) {
-    const response = await axios.get(`https://api.openverse.engineering/v1/images?q=${historicalFigureName}`, {
-        headers: {
-            'Authorization': `Bearer ${accessToken}`,
-        }
-    });
-
-    let data = response.data;
-
-    let commercialImages = data.results.filter(image => image.license === 'by' || image.license === 'by-sa');
-    if (commercialImages.length > 0) {
-        let image = commercialImages[0];  // select the first image
-        let attribution = `Image by ${image.creator} / CC ${image.license.toUpperCase()} / Source: ${image.url}`;
-
-        return {
-            imageUrl: image.url,
-            attribution: attribution
-        };
+async function getImage(figureName) {
+    try {
+        const response = await axios.get(`http://localhost:3000/api/image?figure=${figureName}`);
+        return response.data.imageUrl;
+    } catch (error) {
+        console.error("Error fetching image: ", error);
+        return null;
     }
-
-    return null;
 }
 
 export default async function (req, res) {
@@ -56,11 +43,16 @@ export default async function (req, res) {
         });
 
         // Fetch the image after the chatbot response
-        const imageData = await getImage(req.body.historicalFigure, process.env.OPENVERSE_API_KEY);
+        let imageUrl = null;
+        try {
+            imageUrl = await getImage(req.body.historicalFigure);
+        } catch (err) {
+            console.error("Error fetching image: ", err);
+        }
 
         return res.status(200).json({
             response: gptResponse.data.choices[0].message.content,
-            image: imageData  // Include image data in the response
+            imageUrl: imageUrl, // Include image data in the response
         });
     } catch (err) {
         console.error(err);

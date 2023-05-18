@@ -1,15 +1,10 @@
 import React from 'react';
 
-function Message({ message, sender, image }) {  // Take image as a prop
+function Message({ message, sender, image }) {
     return (
-        <div className={`message ${sender}`}>
+        <div className={sender}>
+            {image && sender === 'ai' ? <img src={image} alt="" /> : null}
             <p>{message}</p>
-            {image ? (  // If image data is provided, display it
-                <div>
-                    <img src={image.imageUrl} alt="" />
-                    <p>{image.attribution}</p>
-                </div>
-            ) : null}
         </div>
     );
 }
