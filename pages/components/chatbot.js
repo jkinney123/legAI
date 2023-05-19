@@ -81,7 +81,7 @@ function ChatBox() {
                             type="text"
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
-                            placeholder="Enter historical figure name"
+                            placeholder="Enter name here"
                         />
                     ) : (
                         <div className="textarea-container">
