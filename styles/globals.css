@@ -1,6 +1,6 @@
 /* styles/globals.css */
 body {
-
+    margin: 0;
     background-color: #9fbbccd4;
 }
 
@@ -168,4 +168,19 @@ img {
 .introMsg {
     display: flex;
     justify-content: center;
+}
+
+.imgNote {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    background-color: #366496;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

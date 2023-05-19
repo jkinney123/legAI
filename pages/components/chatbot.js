@@ -92,6 +92,9 @@ function ChatBox() {
                     </div>
                 </form>
             </div>
+            <div className="imgNote">
+                <p>Note** Images are sourced from Google Search Engine API</p>
+            </div>
         </div>
     );
 }
