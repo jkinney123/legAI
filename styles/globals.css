@@ -5,6 +5,7 @@ html {
     padding: 0;
     background-color: #9fbbccd4;
     font-family: Arial, sans-serif;
+
 }
 
 .chat-box {
@@ -17,8 +18,7 @@ html {
     margin: 10px auto;
     background-color: #ffffff;
     /* Pure white background for contrast */
-    width: 80%;
-    max-width: 800px;
+    max-width: 960px;
     min-height: 500px;
     overflow: auto;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05);
@@ -238,4 +238,23 @@ footer {
 
 .chat-box {
     flex-grow: 1;
+}
+
+.carousel-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel {
+    width: 940px;
+    /* 3 * 300px (image width) + 2 * 20px (image margins) */
+    margin: 0 auto;
+}
+
+.carousel .slide img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 10px;
 }

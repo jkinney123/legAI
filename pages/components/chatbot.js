@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Message from './message';
 import IntroHeader from './IntroHeader';
+import ImageCarousel from './ImageCarousel';
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
@@ -52,6 +53,7 @@ function ChatBox() {
 
     return (
         <div className="chat-box">
+            <ImageCarousel />
             <IntroHeader chatStarted={chatStarted} />
             <div>
                 {!chatStarted ?
