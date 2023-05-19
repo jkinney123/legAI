@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Message from './message';
+import IntroHeader from './IntroHeader';
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
@@ -7,6 +8,7 @@ function ChatBox() {
     const [historicalFigure, setHistoricalFigure] = useState('');
     const [chatStarted, setChatStarted] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false)
 
     const handleSend = async (event) => {
         event.preventDefault();
@@ -25,6 +27,7 @@ function ChatBox() {
             const image = data.imageUrl;
             console.log(image);
             setIsTyping(false);
+            setImageLoaded(true);
             setMessages(prevMessages => [...prevMessages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai', image }]);
             setChatStarted(true);
         } else {
@@ -49,12 +52,14 @@ function ChatBox() {
 
     return (
         <div className="chat-box">
+            <IntroHeader chatStarted={chatStarted} />
             <div>
-                {!chatStarted ? (
-                    <div className="introMsg">
-                        <p>Please enter the name of the historical figure you want to chat with:</p>
-                    </div>
-                ) : null}
+                {!chatStarted ?
+                    (
+                        <div className="introMsg">
+                            <p>Please enter the name of the historical figure you want to chat with:</p>
+                        </div>
+                    ) : null}
                 {messages.map((message, index) => {
                     console.log('Rendering message:', message); // Log each message
                     return (
@@ -92,9 +97,11 @@ function ChatBox() {
                     </div>
                 </form>
             </div>
-            <div className="imgNote">
-                <p>Note** Images are sourced from Google Search Engine API</p>
-            </div>
+            {imageLoaded ? (
+                <div className="imgNote">
+                    <p>Note** Images are sourced from Google Search Engine API</p>
+                </div>
+            ) : null}
         </div>
     );
 }

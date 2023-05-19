@@ -9,9 +9,8 @@ function Message({ message, sender, image, className }) {
                     <p style={{ marginLeft: '20px' }}>{message}</p>
                 </div>
             ) : sender === 'ai' && className === 'typing-message' ? (
-                <div>
-                    <span>{message}</span>
-                    <span className="typing-animation"></span>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span className="typing-text">{message}</span>
                 </div>
             ) : (
                 <p>{message}</p>
@@ -21,3 +20,4 @@ function Message({ message, sender, image, className }) {
 }
 
 export default Message;
+

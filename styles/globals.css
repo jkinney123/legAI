@@ -18,6 +18,21 @@ body {
     overflow: auto;
 }
 
+.intro-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.intro-header p {
+    font-size: 1.2em;
+}
+
+
 
 .message {
     padding: 10px;
@@ -92,19 +107,31 @@ img {
     }
 }
 
-.typing-animation {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    text-align: left;
-    overflow: hidden;
+.typing-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.typing-message:after {
+.typing-message p {
+    margin-right: 10px;
+}
+
+.typing-animation {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    border-right-color: transparent;
+    animation: spinner 0.75s linear infinite;
+}
+
+
+.typing-text:after {
     content: ' .';
     animation: dots 1s steps(5, end) infinite;
 }
+
 
 @keyframes dots {
 
