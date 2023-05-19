@@ -51,7 +51,9 @@ function ChatBox() {
         <div className="chat-box">
             <div>
                 {!chatStarted ? (
-                    <p>Please enter the name of the historical figure you want to chat with:</p>
+                    <div className="introMsg">
+                        <p>Please enter the name of the historical figure you want to chat with:</p>
+                    </div>
                 ) : null}
                 {messages.map((message, index) => {
                     console.log('Rendering message:', message); // Log each message
@@ -61,31 +63,35 @@ function ChatBox() {
                             message={message.text}
                             sender={message.sender}
                             image={message.image}
+                            className={index === 0 ? 'initial-message' : ''}
                         />
                     )
                 })}
-                {/* Add a "typing" message */}
-                {isTyping ? <Message key="typing" message={`${historicalFigure} is typing...`} sender='ai' /> : null}
+                {isTyping ? <Message key="typing" message={`${historicalFigure} is typing`} sender='ai' className='typing-message' /> : null}
             </div>
-            <form onSubmit={handleSend}>
-                {!chatStarted ? (
-                    <input
-                        type="text"
-                        value={newMessage}
-                        onChange={(e) => setNewMessage(e.target.value)}
-                        placeholder="Enter historical figure name"
-                    />
-                ) : (
-                    <div className="textarea-container">
-                        <textarea
-                            className="textarea-style"
+            <div className="centered-form">
+                <form onSubmit={handleSend}>
+                    {!chatStarted ? (
+                        <input
+                            type="text"
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
+                            placeholder="Enter historical figure name"
                         />
+                    ) : (
+                        <div className="textarea-container">
+                            <textarea
+                                className="textarea-style"
+                                value={newMessage}
+                                onChange={(e) => setNewMessage(e.target.value)}
+                            />
+                        </div>
+                    )}
+                    <div className="submitbtn">
+                        <button type="submit" className="submit-button">Submit</button>
                     </div>
-                )}
-                <button type="submit">Send</button>
-            </form>
+                </form>
+            </div>
         </div>
     );
 }

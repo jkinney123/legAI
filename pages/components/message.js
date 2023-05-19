@@ -1,10 +1,21 @@
 import React from 'react';
 
-function Message({ message, sender, image }) {
+function Message({ message, sender, image, className }) {
     return (
-        <div className={sender}>
-            {image && sender === 'ai' ? <img src={image} alt="" /> : null}
-            <p>{message}</p>
+        <div className={`message ${sender} ${className}`}>
+            {sender === 'ai' && className === 'initial-message' ? (
+                <div style={{ display: 'flex', alignItems: 'center', maxWidth: '100%', flexShrink: 0 }}>
+                    {image ? <img src={image} alt="" /> : null}
+                    <p style={{ marginLeft: '20px' }}>{message}</p>
+                </div>
+            ) : sender === 'ai' && className === 'typing-message' ? (
+                <div>
+                    <span>{message}</span>
+                    <span className="typing-animation"></span>
+                </div>
+            ) : (
+                <p>{message}</p>
+            )}
         </div>
     );
 }
