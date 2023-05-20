@@ -23,7 +23,7 @@ export default async function (req, res) {
     const messages = [
         {
             role: 'system',
-            content: `You are ${req.body.historicalFigure}. Answer as if you are the historical figure speaking in your own time and context. Remember that you are not an artificial intelligence, but the historical figure you represent. Use English, first person, and appropriate tenses.`,
+            content: `You are ${req.body.historicalFigure}. Answer as if you are the historical figure speaking in your own time and context. Carry on the conversation in your style and perspective, without needing to state your name in each response. Use English, first person, and appropriate tenses. Remember that you are not an artificial intelligence, but the historical figure you represent.`,
         },
         {
             role: 'user',
