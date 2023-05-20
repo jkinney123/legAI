@@ -9,7 +9,8 @@ function ChatBox() {
     const [historicalFigure, setHistoricalFigure] = useState('');
     const [chatStarted, setChatStarted] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
-    const [imageLoaded, setImageLoaded] = useState(false)
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [displayCarousel, setDisplayCarousel] = useState(true);
 
     const handleSend = async (event) => {
         event.preventDefault();
@@ -29,6 +30,7 @@ function ChatBox() {
             console.log(image);
             setIsTyping(false);
             setImageLoaded(true);
+            setDisplayCarousel(false);
             setMessages(prevMessages => [...prevMessages, { text: `You are now speaking to ${newMessage}.`, sender: 'ai', image }]);
             setChatStarted(true);
         } else {
@@ -53,7 +55,7 @@ function ChatBox() {
 
     return (
         <div className="chat-box">
-            <ImageCarousel />
+            {displayCarousel && <ImageCarousel />}
             <IntroHeader chatStarted={chatStarted} />
             <div>
                 {!chatStarted ?

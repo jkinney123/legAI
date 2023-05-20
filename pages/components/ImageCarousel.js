@@ -19,14 +19,20 @@ function ImageCarousel() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/AlexTheGreat.jpg" alt="Alexander the Great" />
-                <img src="/Socrates.jpg" alt="Alexander the Great" />
-                <img src="/GenghisKhan.jpg" alt="Alexander the Great" />
+                <img src="/Cleopatra.jpg" alt="Cleopatra" />
+                <img src="/GenghisKhan.jpg" alt="Genghis Khan" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <img src="/AlexTheGreat.jpg" alt="Alexander the Great" />
-                <img src="/Socrates.jpg" alt="Alexander the Great" />
-                <img src="/GenghisKhan.jpg" alt="Alexander the Great" />
+                <img src="/Galileo.jpg" alt="Galileo" />
+                <img src="/Socrates.jpg" alt="Socrates" />
+                <img src="/QueenElizabeth1.jpg" alt="Queen Elizabeth 1" />
+                {/* ...more images */}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <img src="/frederickDouglas.jpg" alt="Frederick Douglas" />
+                <img src="/Socrates.jpg" alt="Socrates" />
+                <img src="/QueenElizabeth1.jpg" alt="Queen Elizabeth 1" />
                 {/* ...more images */}
             </div>
             {/* ...more divs */}

@@ -18,7 +18,7 @@ html {
     margin: 10px auto;
     background-color: #ffffff;
     /* Pure white background for contrast */
-    max-width: 960px;
+    width: 960px;
     min-height: 500px;
     overflow: auto;
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05);
