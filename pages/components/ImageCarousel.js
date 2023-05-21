@@ -9,30 +9,48 @@ function ImageCarousel() {
             showThumbs={false}
             showStatus={false}
             interval={10000} // Adjust this to slow down the rotation
-            transitionTime={2000} // Adjust this to slow down the transition
+            transitionTime={5000} // Adjust this to slow down the transition
         >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/Washington.jpg" alt="George Washington" />
-                <img src="/JoanOfArc.png" alt="Joan of Arc" />
-                <img src="/williamShake.jpg" alt="William Shakespeare" />
+                <img src="/Cleopatra.jpg" alt="Marie Antionette" />
+                <img src="/Socrates.jpg" alt="William Shakespeare" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/AlexTheGreat.jpg" alt="Alexander the Great" />
-                <img src="/Cleopatra.jpg" alt="Cleopatra" />
+                <img src="/Antionette.jpg" alt="Cleopatra" />
                 <img src="/GenghisKhan.jpg" alt="Genghis Khan" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/Galileo.jpg" alt="Galileo" />
-                <img src="/Socrates.jpg" alt="Socrates" />
-                <img src="/QueenElizabeth1.jpg" alt="Queen Elizabeth 1" />
+                <img src="/sacagawea.jpg" alt="Socrates" />
+                <img src="/HarrietTubman.jpg" alt="Sacagawea" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <img src="/frederickDouglas.jpg" alt="Frederick Douglas" />
-                <img src="/Socrates.jpg" alt="Socrates" />
-                <img src="/QueenElizabeth1.jpg" alt="Queen Elizabeth 1" />
+                <img src="/NapoleonTest.png" alt="Frederick Douglas" />
+                <img src="/MansaMusaRS.jpg" alt="Socrates" />
+                <img src="/.jpg" alt="Queen Elizabeth 1" />
+                {/* ...more images */}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <img src="/DaVinciRS.jpg" alt="Frederick Douglas" />
+                <img src="/FridaKahlo-Resized.jpg" alt="Socrates" />
+                <img src="/Confucius.jpg" alt="Queen Elizabeth 1" />
+                {/* ...more images */}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <img src="/Einstein.jpg" alt="Frederick Douglas" />
+                <img src="/QueenNzinga.jpg" alt="Socrates" />
+                <img src="/Lincoln.jpg" alt="Queen Elizabeth 1" />
+                {/* ...more images */}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <img src="/WilliamShake.jpg" alt="Frederick Douglas" />
+                <img src="/QueenElizabeth1.jpg" alt="Socrates" />
+                <img src="/frederickDouglas.jpg" alt="Queen Elizabeth 1" />
                 {/* ...more images */}
             </div>
             {/* ...more divs */}
