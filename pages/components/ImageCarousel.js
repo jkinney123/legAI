@@ -8,7 +8,7 @@ function ImageCarousel() {
             infiniteLoop
             showThumbs={false}
             showStatus={false}
-            interval={10000} // Adjust this to slow down the rotation
+            interval={9000} // Adjust this to slow down the rotation
             transitionTime={5000} // Adjust this to slow down the transition
         >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
