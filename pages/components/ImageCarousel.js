@@ -32,7 +32,7 @@ function ImageCarousel() {
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/NapoleonTest.png" alt="Frederick Douglas" />
                 <img src="/MansaMusaRS.jpg" alt="Socrates" />
-                <img src="/.jpg" alt="Queen Elizabeth 1" />
+                <img src="/Gandhi-2.jpg" alt="Ghandi" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
