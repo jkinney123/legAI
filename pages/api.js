@@ -11,7 +11,9 @@ async function getImage(figureName) {
 }
 
 export default async function (req, res) {
-    if (!process.env.OPENAI_API_KEY) {
+    const openaiKey = req.headers['authorization'].split(' ')[1] || process.env.OPENAI_API_KEY;
+
+    if (!openaiKey) {
         res.status(500).json({
             error: {
                 message: "OpenAI API key not configured, please follow instructions in README.md",
@@ -38,16 +40,20 @@ export default async function (req, res) {
         }, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                'Authorization': `Bearer ${openaiKey}`,
             },
         });
 
         // Fetch the image after the chatbot response
         let imageUrl = null;
-        try {
-            imageUrl = await getImage(req.body.historicalFigure);
-        } catch (err) {
-            console.error("Error fetching image: ", err);
+        if (process.env.GOOGLE_CSE_API_KEY && process.env.GOOGLE_CSE_ID) {
+            try {
+                imageUrl = await getImage(req.body.historicalFigure);
+            } catch (err) {
+                console.error("Error fetching image: ", err);
+                res.status(500).json({ error: err.message });
+                return;
+            }
         }
 
         return res.status(200).json({

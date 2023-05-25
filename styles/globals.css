@@ -8,6 +8,50 @@ html {
 
 }
 
+.apiForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.apiForm label {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 18px;
+    /* adjust as needed */
+}
+
+.apiForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #10a37f;
+    border-radius: 4px;
+    outline-color: #10a37f;
+}
+
+.apiForm input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 0;
+    color: #fff;
+    background-color: #366496;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    /* adjust as needed */
+    font-size: 18px;
+    /* adjust as needed */
+}
+
 .chat-box {
     display: flex;
     flex-direction: column;
