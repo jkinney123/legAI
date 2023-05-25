@@ -76,7 +76,10 @@ function ChatBox() {
     return (
         <div className="chat-box">
             {showForm ? (
-                <ApiKeyForm onApiKeySubmit={handleApiKeys} />
+                <>
+                    <ImageCarousel />
+                    <ApiKeyForm onApiKeySubmit={handleApiKeys} />
+                </>
             ) : (
                 <>
                     {displayCarousel && <ImageCarousel />}
