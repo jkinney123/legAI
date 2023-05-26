@@ -18,14 +18,14 @@ function ImageCarousel() {
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <img src="/AlexTheGreat.jpg" alt="Alexander the Great" />
+                <img src="/alexTheGreat.jpg" alt="Alexander the Great" />
                 <img src="/Antionette.jpg" alt="Marie Antionette" />
                 <img src="/GenghisKhan.jpg" alt="Genghis Khan" />
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <img src="/Galileo.jpg" alt="Galileo" />
-                <img src="/sacagawea.jpg" alt="Sacagawea" />
+                <img src="/Sacagawea.jpg" alt="Sacagawea" />
                 <img src="/HarrietTubman.jpg" alt="Harriet Tubman" />
                 {/* ...more images */}
             </div>
@@ -48,7 +48,7 @@ function ImageCarousel() {
                 {/* ...more images */}
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <img src="/WilliamShake.jpg" alt="William Shakespeare" />
+                <img src="/williamShake.jpg" alt="William Shakespeare" />
                 <img src="/QueenElizabeth1.jpg" alt="Queen Elizabeth 1" />
                 <img src="/frederickDouglas.jpg" alt="Frederick Douglas" />
                 {/* ...more images */}
