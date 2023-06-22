@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const FREE_AI_MODEL = "gpt-3.5-turbo";
+
 async function getImage(figureName) {
     try {
         const response = await axios.get(`http://localhost:3000/api/image?figure=${figureName}`);
@@ -12,6 +14,7 @@ async function getImage(figureName) {
 
 export default async function (req, res) {
     const openaiKey = req.headers['authorization'].split(' ')[1] || process.env.OPENAI_API_KEY;
+    const isFreeVersion = openaiKey === process.env.OPENAI_API_KEY;
 
     if (!openaiKey) {
         res.status(500).json({
@@ -35,7 +38,7 @@ export default async function (req, res) {
 
     try {
         const gptResponse = await axios.post('https://api.openai.com/v1/chat/completions', {
-            model: 'gpt-4',
+            model: isFreeVersion ? FREE_AI_MODEL : 'gpt-4',
             messages: messages,
         }, {
             headers: {

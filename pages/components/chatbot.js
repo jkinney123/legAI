@@ -18,7 +18,7 @@ function ChatBox() {
         googleCSEKey: process.env.GOOGLE_CSE_KEY || '',
         googleCSEID: process.env.GOOGLE_CSE_ID || ''
     });
-    const [showForm, setShowForm] = useState(!process.env.OPENAI_API_KEY);
+    const [showForm, setShowForm] = useState(true);
 
     const handleApiKeys = (keys) => {
         console.log("Keys submitted: ", keys);
@@ -57,7 +57,7 @@ function ChatBox() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKeys.openaiKey}`,
+                    'Authorization': `Bearer ${apiKeys.isFreeVersion ? process.env.OPENAI_API_KEY : apiKeys.openaiKey}`,
                     'Google-CSE-Key': apiKeys.googleCSEKey,
                     'Google-CSE-ID': apiKeys.googleCSEID
                 },
