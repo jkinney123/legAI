@@ -129,14 +129,6 @@ html {
     padding: 10px;
 }
 
-img {
-    max-width: 300px;
-    max-height: 300px;
-    height: auto;
-    margin: 0 auto;
-    flex-shrink: 0;
-    /* Prevent the image from shrinking */
-}
 
 
 .initial-message {
@@ -255,10 +247,6 @@ img {
     justify-content: center;
 }
 
-.imgNote {
-    display: flex;
-    justify-content: center;
-}
 
 footer {
     background-color: #366496;
@@ -287,23 +275,4 @@ footer {
 
 .chat-box {
     flex-grow: 1;
-}
-
-.carousel-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-}
-
-.carousel {
-    width: 940px;
-    /* 3 * 300px (image width) + 2 * 20px (image margins) */
-    margin: 0 auto;
-}
-
-.carousel .slide img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    margin: 0 10px;
 }
