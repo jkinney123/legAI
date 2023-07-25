@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 function ApiKeyForm({ onApiKeySubmit }) {
     const [openaiKey, setOpenaiKey] = useState('');
     const [isFreeVersion, setIsFreeVersion] = useState(false);
-    const [googleCSEKey, setGoogleCSEKey] = useState('');
-    const [googleCSEID, setGoogleCSEID] = useState('');
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onApiKeySubmit({ googleCSEKey, googleCSEID, openaiKey, isFreeVersion });
+        onApiKeySubmit({ openaiKey, isFreeVersion });
     };
 
     return (
@@ -28,15 +27,6 @@ function ApiKeyForm({ onApiKeySubmit }) {
                         <input type="text" value={openaiKey} onChange={(e) => setOpenaiKey(e.target.value)} required />
                     </label>
                 )}
-                <p>If you would like images generated, submit your Google Programmable Search Engine API and ID (can be created <a href="https://developers.google.com/custom-search/docs/paid_element">here</a>).</p>
-                <label>
-                    (optional-) Google CSE API Key:
-                    <input type="text" value={googleCSEKey} onChange={(e) => setGoogleCSEKey(e.target.value)} />
-                </label>
-                <label>
-                    (optional-) Google CSE ID:
-                    <input type="text" value={googleCSEID} onChange={(e) => setGoogleCSEID(e.target.value)} />
-                </label>
                 <input type="submit" value="Submit" />
             </form>
         </div>
