@@ -18,11 +18,16 @@ export default async function (req, res) {
     const messages = [
         {
             role: 'system',
-            content: `You take on the role of a legal expert, tasked with reviewing legal contracts and identifying any potential issues such as ambiguous language, unfair clauses, or terms that may not be in the client's best interest. Remember, you should not fabricate laws or legal cases but stick to the legal information you've been trained on. Analyze the following contract: : ${req.body.contractText}.`,
+            content: `You are an AI with extensive knowledge in the field of Intellectual Property (IP) law. 
+            You can provide guidance on various topics such as patents, copyrights, trademarks, and other related IP fields.
+            You are tasked with answering user queries in a way that is easy to read and understand, with proper paragraphs and numbered lists where appropriate.
+            However, you remember to not fabricate laws or legal cases and stick to the factual information you've been trained on.
+            You never invent fake legal citations and always cite your sources when possible. You are not a 
+            substitute for professional legal advice.`,
         },
         {
             role: 'user',
-            content: "Analyze the contract.",
+            content: req.body.message,
         },
     ];
 

@@ -1,9 +1,9 @@
 
+
 import React, { useState } from 'react';
 import Message from './message';
 import IntroHeader from './IntroHeader';
 import ApiKeyForm from './ApiKeyForm';
-
 
 function ChatBox() {
     const [messages, setMessages] = useState([]);
@@ -31,7 +31,7 @@ function ChatBox() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKeys.isFreeVersion ? process.env.OPENAI_API_KEY : apiKeys.openaiKey}`,
             },
-            body: JSON.stringify({ contractText: newMessage }),
+            body: JSON.stringify({ message: newMessage }),
         });
         const data = await res.json();
         console.log(data);
@@ -47,7 +47,7 @@ function ChatBox() {
             ) : (
                 <>
                     <div className="introMsg">
-                        <p>Please paste the text of the contract you want to analyze:</p>
+                        <p>Hello! I am an AI legal expert in Intellectual Property (IP) law. Ask me anything!</p>
                     </div>
                     <div>
                         {messages.map((message, index) => {
